@@ -1,3 +1,4 @@
+```yaml
 name: MLflow CI
 
 on:
@@ -45,5 +46,11 @@ jobs:
         working-directory: Workflow-CI/MLProject
         run: |
           mlflow models build-docker \
-            --model-uri file:./artifacts/model.pkl \
-            --name yosephas/telco-customer-churn:latest
+            --model-uri ./artifacts/mlflow_model \
+            --name yosephas/telco-customer-churn:latest \
+            --env-manager local
+
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push yosephas/telco-customer-churn:latest
+```
