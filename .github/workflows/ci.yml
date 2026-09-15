@@ -1,4 +1,3 @@
-```yaml
 name: MLflow CI
 
 on:
@@ -53,4 +52,3 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: |
           docker push yosephas/telco-customer-churn:latest
-```
