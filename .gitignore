@@ -1,0 +1,23 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# MLflow
+mlruns/
+
+# Temporary files
+*.tmp
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Antigravity / VS Code
+.vscode/
