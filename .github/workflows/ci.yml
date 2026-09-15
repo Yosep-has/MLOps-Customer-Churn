@@ -34,3 +34,16 @@ jobs:
         with:
           name: trained-model
           path: Workflow-CI/MLProject/artifacts/model.pkl
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build Docker image with MLflow
+        working-directory: Workflow-CI/MLProject
+        run: |
+          mlflow models build-docker \
+            --model-uri file:./artifacts/model.pkl \
+            --name yosephas/telco-customer-churn:latest

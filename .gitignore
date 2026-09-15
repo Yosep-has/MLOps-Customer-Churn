@@ -21,3 +21,6 @@ Thumbs.db
 
 # Antigravity / VS Code
 .vscode/
+
+# MLflow generated artifacts
+Workflow-CI/MLProject/artifacts/

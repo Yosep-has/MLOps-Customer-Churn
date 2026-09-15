@@ -1,0 +1,5 @@
+Docker Hub Repository:
+https://hub.docker.com/r/yosephas/telco-customer-churn
+
+Image:
+yosephas/telco-customer-churn:latest

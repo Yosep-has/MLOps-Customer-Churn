@@ -1,8 +1,8 @@
+import os
+import joblib
 import pandas as pd
 import mlflow
 import mlflow.sklearn
-import os
-import joblib
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -41,19 +41,40 @@ model = RandomForestClassifier(
 )
 
 
-# MLflow
+# MLflow autolog
 mlflow.sklearn.autolog()
 
-with mlflow.start_run():
+
+# Training
+with mlflow.start_run() as run:
 
     model.fit(X_train, y_train)
 
+    # Simpan model dalam format joblib
     os.makedirs("artifacts", exist_ok=True)
-    joblib.dump(model, "artifacts/model.pkl")
+
+    joblib.dump(
+        model,
+        "artifacts/model.pkl"
+    )
+
+    # Simpan model dalam format MLflow
+    mlflow.sklearn.log_model(
+        sk_model=model,
+        artifact_path="model"
+    )
+
+    mlflow.sklearn.save_model(
+        sk_model=model,
+        path="artifacts/mlflow_model"
+    )
+
+    # Simpan Run ID
+    with open("artifacts/run_id.txt", "w") as f:
+        f.write(run.info.run_id)
 
     print("Model berhasil disimpan ke artifacts/model.pkl")
-
-    print("Model berhasil dilatih.")
-
+    print("MLflow model berhasil disimpan.")
+    print("Run ID:", run.info.run_id)
     print("Jumlah data training:", len(X_train))
     print("Jumlah data testing :", len(X_test))
