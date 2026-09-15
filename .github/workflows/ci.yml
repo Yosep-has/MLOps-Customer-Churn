@@ -27,7 +27,7 @@ jobs:
       - name: Run MLflow Project
         working-directory: Workflow-CI/MLProject
         run: |
-          mlflow run . --env-manager local
+          python modelling.py
 
       - name: Upload trained model
         uses: actions/upload-artifact@v4
