@@ -1,0 +1,8 @@
+URL Eksperimen:
+https://github.com/Yosep-has/MLOps-Customer-Churn
+
+Repository ini berisi project eksperimen preprocessing dan automasi K1.
+Folder utama:
+- Eksperimen_SML
+- Membangun_model
+- Monitoring dan Logging

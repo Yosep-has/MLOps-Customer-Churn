@@ -1,0 +1,13 @@
+URL Workflow CI:
+https://github.com/Yosep-has/MLOps-Customer-Churn
+
+Repository ini berisi implementasi Workflow CI untuk proses training model dan Docker image.
+Folder utama:
+- .github/workflows
+- Workflow-CI/MLProject
+
+Docker Hub:
+https://hub.docker.com/r/yosephas/telco-customer-churn
+
+Docker Image:
+yosephas/telco-customer-churn:latest
