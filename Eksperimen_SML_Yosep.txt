@@ -1,8 +1,11 @@
 URL Eksperimen:
-https://github.com/Yosep-has/MLOps-Customer-Churn
+https://github.com/Yosep-has/Eksperimen_SML_Yosep
 
-Repository ini berisi project eksperimen preprocessing dan automasi K1.
-Folder utama:
-- Eksperimen_SML
-- Membangun_model
-- Monitoring dan Logging
+Repository ini berisi project eksperimen preprocessing dan automasi Kriteria 1.
+Struktur repository:
+- .github/workflows
+- dataset_raw
+- preprocessing
+  - Eksperimen_Yosep.ipynb
+  - automate_Yosep.py
+  - namadataset_preprocessing

@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import mlflow
 import mlflow.sklearn
@@ -32,9 +33,9 @@ CHECKLIST = {
 # 2. Load dataset
 # ============================================================
 DATA_PATH = (
-    "Eksperimen_SML/preprocessing/"
-    "namadataset_preprocessing/"
     "telco_customer_churn_preprocessed.csv"
+    if os.path.exists("telco_customer_churn_preprocessed.csv")
+    else "Eksperimen_SML/preprocessing/namadataset_preprocessing/telco_customer_churn_preprocessed.csv"
 )
 
 df = pd.read_csv(DATA_PATH)
