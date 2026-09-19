@@ -1,0 +1,21 @@
+﻿======================================================
+  MLflow Model Serving - Bukti Inference Berhasil
+======================================================
+
+Server  : http://127.0.0.1:5002
+Script  : Monitoring dan Logging/7.inference.py
+Model   : Workflow-CI/MLProject/artifacts/mlflow_model
+
+--- Output Inference ---
+Status code : 200
+Response    : {"predictions": [0]}
+
+--- Server Log ---
+INFO:waitress:Serving on http://127.0.0.1:5002
+2026/09/18 INFO mlflow.pyfunc.backend: Running command 'waitress-serve
+  --host=127.0.0.1 --port=5002 --ident=mlflow
+  mlflow.pyfunc.scoring_server.wsgi:app'
+
+Hasil: Model berhasil melayani 1 request inference.
+       Prediksi: 0 (pelanggan TIDAK churn)
+======================================================

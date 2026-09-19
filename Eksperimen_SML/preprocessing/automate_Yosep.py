@@ -93,17 +93,24 @@ def save_preprocessed_data(X, y, output_path):
 
 if __name__ == "__main__":
 
-    input_path = (
-    "Eksperimen_SML/"
-    "dataset_raw/"
-    "WA_Fn-UseC_-Telco-Customer-Churn.csv"
-    )
+    # Tentukan path dataset secara dinamis agar kompatibel di root repo maupun folder preprocessing
+    raw_filename = "WA_Fn-UseC_-Telco-Customer-Churn.csv"
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_dir = os.path.dirname(script_dir)
 
-    output_path = (
-    "Eksperimen_SML/"
-    "preprocessing/"
-    "namadataset_preprocessing/"
-    "telco_customer_churn_preprocessed.csv"
+    possible_inputs = [
+        os.path.join(repo_dir, "dataset_raw", raw_filename),
+        os.path.join(repo_dir, "Eksperimen_SML", "dataset_raw", raw_filename),
+        os.path.join("dataset_raw", raw_filename),
+        os.path.join("..", "dataset_raw", raw_filename),
+        os.path.join("Eksperimen_SML", "dataset_raw", raw_filename),
+    ]
+    input_path = next((p for p in possible_inputs if os.path.exists(p)), os.path.join("dataset_raw", raw_filename))
+
+    output_path = os.path.join(
+        script_dir,
+        "namadataset_preprocessing",
+        "telco_customer_churn_preprocessed.csv"
     )
 
     df = load_data(input_path)
