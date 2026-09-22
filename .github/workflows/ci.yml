@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  mlflow run . --env-manager=local
 
 jobs:
   train-model:
